@@ -3,9 +3,9 @@
 课程设计
 
 # Background
+完成老师作业
 
-
-#Usage
+# Usage
 前端采用jQuery
 调用百度JavaScriptAPI
 服务器采用SSM框架
