@@ -27,7 +27,9 @@ public class StudentCotroller {
 	@ResponseBody
 	public Map<String, Object> studentController(){
 		Map<String, Object> map = new HashMap<String, Object>();
+		//取出所有学生信息
 		List<Student> list = studentService.query();
+		//如果list不为空，则返回给前台
 		if (list!=null) {
 			map.put("code", 1);
 			map.put("info", list);

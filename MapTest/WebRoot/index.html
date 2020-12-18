@@ -26,7 +26,9 @@
 			var point1;
 			//打开鼠标滚轮缩放
 			map.enableScrollWheelZoom(true);
+			//地图加载完成，显示学生生源地信息
 			map.addEventListener('tilesloaded', function () {
+			//ajax请求，取出学生信息
 			    $.ajax({
 					type:"post",
 					url:"studentController.do",
@@ -37,6 +39,7 @@
 							//把每个学生的信息传过去
 							for(var i = 0;i<response.info.length;i++){
 								//console.log(response.info[i]);
+								//调用百度地图坐标转换的方法，可以将文字信息转成坐标
 									getPoint(response.info[i]);
 							}
 						}else{
@@ -93,11 +96,11 @@
 					 strokeOpacity:0.5//透明度
 					 });
 				map.addOverlay(polyLine);
-				setTimeout(function(){
-					run(point,point1);
-				},300);
+				//setTimeout(function(){
+					//run(point,point1);
+				//},300);
 			}
-			
+			//做一个小人从生源地，移动到终点的坐标
 			window.run = function (point1,point2){
 		var driving = new BMapGL.DrivingRoute(map);    //驾车实例
 		driving.search(point1, point2);
